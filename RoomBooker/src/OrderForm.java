@@ -3,11 +3,12 @@ import java.util.Date;
 
 public class OrderForm {
 	
-	OrderForm(Date d, String c, int n)
+	OrderForm(Date d, String c, int n, int h)
 	{
 		desiredDate = d;
 		desiredCourse = c;
 		numberOfPeople = n;
+		hoursDesired  = h;
 	}
 	
 	boolean submit()
@@ -27,6 +28,7 @@ public class OrderForm {
 	
 	Date desiredDate;
 	String desiredCourse;
-	int numberOfPeople;                             
+	int numberOfPeople;           
+	int hoursDesired;
 
 }
