@@ -2,17 +2,17 @@ import java.util.Scanner;
 
 public class Main 
 {
+	void input()
+	{
+		Input input = new Input();
+		input.promptName();
+		input.promptNumber();
+		input.promptDuration();
+	}
+	
 	Main()
 	{
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println(" Enter the name of the course \n\n");
-		
-		System.out.println(" Enter the name of the course \n\n");
-		
-		System.out.println(" Enter the name of people that will be attending \n\n");
-		
-		System.out.println(" Enter the duration (whole numbers, hours) \n\n");
+		input();
 	}
 	
 	public static void main(String[] args) 

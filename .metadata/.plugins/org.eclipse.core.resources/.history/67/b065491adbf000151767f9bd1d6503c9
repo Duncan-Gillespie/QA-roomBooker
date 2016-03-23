@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+
+public class Input {
+
+	private Scanner sc = new Scanner(System.in);
+	
+	public void promptName()
+	{
+		String input;
+		boolean resolved = false;
+		while(!resolved)
+		{
+			System.out.println(" Enter the name of the course \n\n");
+			input = getUserInput();
+			if(!input.isEmpty())
+				resolved=true;
+		}
+	}
+	
+	private String getUserInput(){
+		String input;
+		try
+		{
+			input = sc.nextLine();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error you messed up somewhat, try again \n\n");
+			return "";
+		}
+		//other stuff
+		return input;
+	}
+	
+	public void promptDate()
+	{
+		
+	}
+	
+	public void promptNumber()
+	{
+		
+	}
+	
+	public void promptDuration()
+	{
+		
+	}
+}

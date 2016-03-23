@@ -1,0 +1,23 @@
+
+public class Input {
+
+	public void promptName()
+	{
+		
+	}
+	
+	public void promptDate()
+	{
+		
+	}
+	
+	public void promptNumber()
+	{
+		
+	}
+	
+	public void promptDuration()
+	{
+		
+	}
+}

@@ -1,0 +1,17 @@
+
+public class Room {
+	int capacity;
+	static int id = 0;
+	
+	static void addToID()
+	{
+		id++;
+	}
+	
+	Room(int capacity)
+	{
+		this.capacity = capacity;
+		addToID();
+	}
+
+}

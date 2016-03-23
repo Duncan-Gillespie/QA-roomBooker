@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+
+public class Input {
+
+	public void promptName()
+	{
+		boolean resolved = false;
+		while(!resolved)
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println(" Enter the name of the course \n\n")
+		}
+	}
+	
+	public void promptDate()
+	{
+		
+	}
+	
+	public void promptNumber()
+	{
+		
+	}
+	
+	public void promptDuration()
+	{
+		
+	}
+}

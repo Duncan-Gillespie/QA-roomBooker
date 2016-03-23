@@ -1,0 +1,10 @@
+
+public class Room {
+	int capacity;
+	
+	Room(int capacity)
+	{
+		this.capacity = capacity;
+	}
+
+}

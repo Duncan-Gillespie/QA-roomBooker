@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+
+public final class Data {
+
+	private Data () { // private constructor
+		
+		courseList.add("Java");
+		courseList.add("Math");
+		courseList.add("Poetry");
+		courseList.add("French");
+    }
+   
+	
+	private static ArrayList<String> courseList = new ArrayList<String>();
+	
+	public static void setMyStaticMember(int val) {
+       // myStaticMember = val;
+    }
+   
+	public static ArrayList<String> getCourseList() {
+        return courseList;
+    }
+  
+	public static int squareMyStaticMember() {
+        //return myStaticMember * myStaticMember;
+    }
+}

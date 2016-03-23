@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main 
+{
+	void input()
+	{
+		Input input = new Input();
+		input.promptName();
+	}
+	
+	Main()
+	{
+		input();
+	}
+	
+	public static void main(String[] args) 
+	{
+		Main theMain = new Main();
+	}
+
+}
