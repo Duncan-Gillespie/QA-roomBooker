@@ -20,7 +20,7 @@ public final class Data {
 			roomList.add(new Room(i*5));
 		}
 		
-		//employeeList.add(e)
+		employeeList.add(e)
     }
    
 	public void setMyStaticMember(int val) {
