@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+
+
+public final class Data {
+	private static Data data = new Data();
+	
+	private ArrayList<String> courseList = new ArrayList<String>();
+	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
+	private ArrayList<Room> roomList = new ArrayList<Room>();
+	
+	private Data () { // private constructor
+		
+		courseList.add("Java");
+		courseList.add("Math");
+		courseList.add("Poetry");
+		courseList.add("French");
+		
+		for (int i = 1; i < 20; i++)
+		{
+			roomList.add(new Room(i*5));
+		}
+		
+		//employeeList.add(e)
+    }
+   
+	public void setMyStaticMember(int val) {
+       //myStaticMember = val;
+    }
+   
+	public ArrayList<String> getCourseList() {
+        return courseList;
+    }
+  
+	public static Data getInstance()
+	{
+		return data;
+	}
+}

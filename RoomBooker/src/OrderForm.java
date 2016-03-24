@@ -3,7 +3,12 @@ import java.util.Date;
 
 public class OrderForm {
 	
-	OrderForm(Date d, String c, int n, int h)
+	OrderForm()
+	{
+
+	}
+	
+	void SetOrderForm(Date d, Course c, int n, int h)
 	{
 		desiredDate = d;
 		desiredCourse = c;
@@ -27,7 +32,7 @@ public class OrderForm {
 	}
 	
 	Date desiredDate;
-	String desiredCourse;
+	Course desiredCourse;
 	int numberOfPeople;           
 	int hoursDesired;
 

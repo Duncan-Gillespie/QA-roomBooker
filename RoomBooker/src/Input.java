@@ -1,4 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -7,22 +10,25 @@ public class Input {
 	private Scanner sc = new Scanner(System.in);
 	//
 	int errorValue = -1;
+	OrderForm orderForm;
 	
-	Input()
-	{
-		//tempList.add("Java");
-		//tempList.add("Math");
-		//tempList.add("Poetry");
-		//tempList.add("French");
+	Course theCourse;
+	int theDuration, numberAttending;
+	Date theDate;
+
+	
+	Input(OrderForm orderForm){
+		this.orderForm = orderForm;
 	}
 	
 	private boolean checkOnList(String input)
 	{
-		ArrayList<String> tempList = Data.getInstance().getCourseList();
-		for(String i : tempList)
+		ArrayList<Course> tempList = Data.getInstance().getCourseList();
+		for(Course i : tempList)
 		{
-			if(i.equals(input))
+			if(i.getName().equals(input))
 			{
+				theCourse = i;
 				return true;
 			}
 		}
@@ -55,19 +61,10 @@ public class Input {
 		}
 		return input;
 	}
-	/*public void promptName()
-	{
-		String input;
-		boolean resolved = false;
-		do {
-			System.out.println(" Enter the name of the course \n\n");
-			input = getUserString();
-			if(!input.isEmpty())
-				resolved=true;
-		} while(!resolved);
-	}*/
 	
-	public void promptName()
+	
+	
+	private void promptName()
 	{
 		String input;
 		boolean resolved = false;
@@ -76,7 +73,10 @@ public class Input {
 			System.out.println(" Enter the name of the course \n\n");
 			input = getUserString();
 			if(!input.isEmpty()&&checkOnList(input))
+			{
+			
 				resolved=true;
+			}
 			else
 			{
 				System.out.println("NoT oN tHe LiSt");
@@ -84,26 +84,33 @@ public class Input {
 		} 
 	}
 	
-	
-	
-	public void promptDate()
+	private void promptDate()
 	{
 		String input;
-		boolean resolved = false;
-		while(!resolved) 
+		String expectedPattern = "dd/mm/yyyy";
+		SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
+		boolean resolved = true;
+		
+		do 
 		{
-			System.out.println(" Enter the date you wish to reserve\n\n");
+			System.out.println(" Enter the date you wish to reserve (in the format DD/MM/YYYY)\n\n");
+			//sc.next();
 			input = getUserString();
-			if(!input.isEmpty()&&checkOnList(input))
-				resolved=true;
-			else
+			try
 			{
-				System.out.println("NoT oN tHe LiSt");
+				resolved = true;
+				theDate = formatter.parse(input);
+			}
+			catch(ParseException e)
+			{
+				System.out.println("wrong format");
+				resolved = false;
 			}
 		} 
+		while(!resolved) ;
 	}
 	
-	public void promptNumber()
+	private void promptNumber()
 	{
 		int input;
 		boolean resolved = false;
@@ -112,7 +119,10 @@ public class Input {
 			System.out.println(" Enter the number who will be attending \n\n");
 			input = getUserInt();
 			if(input!=errorValue)
+			{
+				numberAttending = input;
 				resolved=true;
+			}
 			else
 			{
 				System.out.println("invalid value");
@@ -120,7 +130,7 @@ public class Input {
 		} 
 	}
 	
-	public void promptDuration()
+	private void promptDuration()
 	{
 		int input;
 		boolean resolved = false;
@@ -129,11 +139,24 @@ public class Input {
 			System.out.println(" How many hours will the presentation last for \n\n");
 			input = getUserInt();
 			if(input!=errorValue)
+			{
+				theDuration = input;
 				resolved=true;
+			}
 			else
 			{
 				System.out.println("invalid value");
 			}
 		} 
+	}
+	
+	public void handleInput()
+	{
+		promptName();
+		promptNumber();
+		promptDate();
+		promptDuration();
+		
+		orderForm.SetOrderForm(theDate, theCourse, numberAttending, theDuration);
 	}
 }

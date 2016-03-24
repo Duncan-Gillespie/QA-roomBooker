@@ -1,0 +1,144 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+
+
+public class Input {
+
+	private Scanner sc = new Scanner(System.in);
+	//
+	int errorValue = -1;
+	
+	Input(){
+	}
+	
+	private boolean checkOnList(String input)
+	{
+		ArrayList<Course> tempList = Data.getInstance().getCourseList();
+		for(Course i : tempList)
+		{
+			if(i.getName().equals(input))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private String getUserString(){
+		String input;
+		try {
+			input = sc.nextLine();
+			System.out.println(input);
+		} 
+		catch (Exception e) {
+			System.out.println("Error you messed up somewhat, try again \n\n");
+			return "";
+		}
+		return input;
+	}
+	
+	private int getUserInt(){
+		int input;
+		try{
+			input = sc.nextInt();
+			System.out.println(input);
+		}
+		catch (Exception e) {
+			System.out.println("Error you messed up somewhat, try again \n\n");
+			sc.next();
+			return errorValue;
+		}
+		return input;
+	}
+	/*public void promptName()
+	{
+		String input;
+		boolean resolved = false;
+		do {
+			System.out.println(" Enter the name of the course \n\n");
+			input = getUserString();
+			if(!input.isEmpty())
+				resolved=true;
+		} while(!resolved);
+	}*/
+	
+	public void promptName()
+	{
+		String input;
+		boolean resolved = false;
+		while(!resolved) 
+		{
+			System.out.println(" Enter the name of the course \n\n");
+			input = getUserString();
+			if(!input.isEmpty()&&checkOnList(input))
+				resolved=true;
+			else
+			{
+				System.out.println("NoT oN tHe LiSt");
+			}
+		} 
+	}
+	
+	
+	
+	public void promptDate()
+	{
+		String input;
+		String expectedPattern = "dd/mm/yyyy";
+		SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
+		boolean resolved = true;
+		
+		do 
+		{
+			System.out.println(" Enter the date you wish to reserve (in the format DD/MM/YYYY)\n\n");
+			input = getUserString();
+			try
+			{
+				Date date = formatter.parse(input);
+			}
+			catch(ParseException e)
+			{
+				System.out.println("wrong format");
+				resolved = false;
+			}
+		} 
+		while(!resolved) ;
+	}
+	
+	public void promptNumber()
+	{
+		int input;
+		boolean resolved = false;
+		while(!resolved) 
+		{
+			System.out.println(" Enter the number who will be attending \n\n");
+			input = getUserInt();
+			if(input!=errorValue)
+				resolved=true;
+			else
+			{
+				System.out.println("invalid value");
+			}
+		} 
+	}
+	
+	public void promptDuration()
+	{
+		int input;
+		boolean resolved = false;
+		while(!resolved) 
+		{
+			System.out.println(" How many hours will the presentation last for \n\n");
+			input = getUserInt();
+			if(input!=errorValue)
+				resolved=true;
+			else
+			{
+				System.out.println("invalid value");
+			}
+		} 
+	}
+}

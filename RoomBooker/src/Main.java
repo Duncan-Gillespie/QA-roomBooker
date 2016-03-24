@@ -4,10 +4,8 @@ public class Main
 {
 	void input()
 	{
-		Input input = new Input();
-		input.promptName();
-		input.promptNumber();
-		input.promptDuration();
+		Input input = new Input(new OrderForm());
+		input.handleInput();
 	}
 	
 	Main()

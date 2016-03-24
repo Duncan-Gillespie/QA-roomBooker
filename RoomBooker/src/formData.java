@@ -3,7 +3,8 @@ import java.util.Date;
 
 public class formData {
 	Date desiredDate;
-	String desiredCourse;
+	Course desiredCourse;
 	int numberOfPeople;      
+	int duration;
 	
 }
