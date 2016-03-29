@@ -1,0 +1,6 @@
+
+public class DatesBooked {
+	Date start;
+	Date end;
+
+}

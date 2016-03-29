@@ -8,14 +8,12 @@ public class OrderForm {
 
 	}
 	
-	boolean SetOrderForm(Date d, Course c, int n, int h)
+	void SetOrderForm(Date d, Course c, int n, int h)
 	{
 		desiredDate = d;
 		desiredCourse = c;
 		numberOfPeople = n;
 		hoursDesired  = h;
-		
-		return true;
 	}
 	
 	boolean submit()
@@ -37,7 +35,5 @@ public class OrderForm {
 	Course desiredCourse;
 	int numberOfPeople;           
 	int hoursDesired;
-	
-	Employee trainer;
 
 }

@@ -158,6 +158,5 @@ public class Input {
 		promptDuration();
 		
 		orderForm.SetOrderForm(theDate, theCourse, numberAttending, theDuration);
-	
 	}
 }

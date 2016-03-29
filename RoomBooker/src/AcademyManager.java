@@ -1,4 +1,3 @@
+/*public class AcademyManager extends Employee{
 
-public class AcademyManager extends Employee{
-
-}
+}*/

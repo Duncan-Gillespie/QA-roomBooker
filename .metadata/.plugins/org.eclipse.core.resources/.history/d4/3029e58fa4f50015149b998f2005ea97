@@ -37,7 +37,5 @@ public class OrderForm {
 	Course desiredCourse;
 	int numberOfPeople;           
 	int hoursDesired;
-	
-	Employee trainer;
 
 }
